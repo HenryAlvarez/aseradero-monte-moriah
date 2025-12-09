@@ -1,14 +1,16 @@
 import logo from './logo.svg';
+import portada from './assets/portada.jpeg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img width={600} src={portada} alt='Aseradero Monte Moria' />
         <p>
-          Bienvenido, a <code>Aseradero Monte Moria</code>, pagina en contruccion.
+          Bienvenidos, a <code>Aseradero Monte Moria</code>, pagina en contruccion.
         </p>
+        <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>
   );
