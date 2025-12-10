@@ -4,10 +4,12 @@ import Navbar from './components/Navbar';
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Catalog from "./pages/Catalog";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-gray-200">
         <Navbar />
         <main className="flex-1">

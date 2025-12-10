@@ -11,11 +11,8 @@ export default function AboutSection() {
               Sobre Nosotros
             </h2>
             <p className="text-base font-normal leading-normal max-w-3xl text-gray-700 dark:text-gray-300">
-              Aserradero Monte Moriah es un negocio dedicado a la venta de
-              madera y productos forestales, comprometidos con la calidad y el
-              servicio al cliente. Ofrecemos una amplia variedad de productos
-              para satisfacer las necesidades de nuestros clientes, tanto
-              mayoristas como minoristas.
+              Aserradero Monte Moriah es una empresa dedicada a la venta de madera de pino y ciprés, regla y tabla, así como una amplia variedad de productos relacionados con la carpintería y la construcción.
+Ofrecemos soluciones en pérgolas, pilares torneados, celosías, capiteles, pergaminos y más, siempre comprometidos con la calidad y la satisfacción de nuestros clientes.
             </p>
           </div>
 
@@ -25,10 +22,7 @@ export default function AboutSection() {
                 Misión
               </h3>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Proveer madera de la más alta calidad, obtenida de manera
-                sostenible, garantizando la satisfacción total de nuestros
-                clientes a través de un servicio excepcional y precios
-                competitivos.
+                Brindar madera de alta calidad para la construcción y la carpintería, ofreciendo un servicio confiable y una excelente atención al cliente en cada proyecto.
               </p>
             </div>
 
@@ -37,9 +31,7 @@ export default function AboutSection() {
                 Visión
               </h3>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Ser la empresa líder en el sector maderero, reconocida por
-                nuestra integridad, innovación y compromiso con el medio
-                ambiente y la comunidad.
+              Mejorar continuamente nuestros servicios y ampliar la variedad de productos para responder de manera efectiva a las necesidades de nuestra clientela, consolidándonos como un referente en el sector maderero.
               </p>
             </div>
 
@@ -48,9 +40,7 @@ export default function AboutSection() {
                 Valores
               </h3>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Calidad: Nos esforzamos por la excelencia en cada producto.
-                Responsabilidad: Operamos de manera sostenible y ética.
-                Confianza: Construimos relaciones duraderas.
+                Productos de calidad, puntualidad en la entrega, responsabilidad en cada proceso y un firme compromiso con la satisfacción de nuestros clientes.
               </p>
             </div>
           </div>

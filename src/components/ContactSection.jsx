@@ -18,7 +18,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-bold">Dirección</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Av. Siempre Viva 742, Springfield
+                  Dirección
                 </p>
               </div>
             </div>
@@ -30,7 +30,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-bold">Teléfono</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  +54 9 11 1234-5678
+                  Numero de Teléfono
                 </p>
               </div>
             </div>
@@ -42,7 +42,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-bold">Email</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  contacto@montemoriah.com
+                  Correo Electronico
                 </p>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function ContactSection() {
                 height="100%"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.285480749!2d-122.5222002364132!3d37.75769480721245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1689588647622!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990738.4649003286!2d-91.35613804394016!3d15.656231680857742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f6!3m3!1m2!1s0x858901f9ed7b1df1%3A0x8e5c2bd33ad0396b!2sGuatemala!5e0!3m2!1ses!2sgt!4v1706900800000!5m2!1ses!2sgt"
                 style={{ border: 0, width: "100%" }}
               ></iframe>
             </div>

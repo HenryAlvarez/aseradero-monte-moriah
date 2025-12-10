@@ -7,32 +7,37 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Enlaces principales
   const navLinks = [
-    { label: "Inicio", path: "/" },
-    { label: "Sobre Nosotros", hash: "about" },
-    { label: "Catálogo", path: "catalogo" },
-    { label: "Galería", hash: "gallery" },
-    { label: "Contacto", hash: "contact" },
+    { label: "Inicio", type: "route", path: "/" },
+    { label: "Sobre Nosotros", type: "section", id: "about" },
+    { label: "Catálogo", type: "route", path: "/catalogo" },
+    { label: "Galería", type: "section", id: "gallery" },
+    { label: "Contacto", type: "section", id: "contact" },
   ];
 
-  const goToSection = (hash) => {
+  const scrollToId = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleSectionClick = (id) => {
     setOpen(false);
 
     if (location.pathname === "/") {
-      // Ya estamos en Home → solo scroll
-      window.location.hash = hash;
+      // Ya estamos en Home → solo hacer scroll
+      scrollToId(id);
     } else {
-      // Estamos en otra página → ir a Home y luego scroll
-      navigate(`/#${hash}`);
+      // Estamos en otra página → ir al Home y luego hacer scroll
+      navigate("/", { state: { scrollTo: id } });
     }
   };
 
   return (
     <header className="sticky top-0 z-50 flex items-center justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
       <div className="flex items-center justify-between w-full max-w-6xl px-4 py-3">
-        
-        {/* LOGO */}
+        {/* Logo */}
         <div className="flex items-center gap-4">
           <div className="size-8 text-[#2F4F4F] dark:text-primary">
             <svg fill="currentColor" viewBox="0 0 24 24">
@@ -44,73 +49,63 @@ export default function Navbar() {
           </h2>
         </div>
 
-        {/* NAV ESCRITORIO */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => {
-            // Enlaces a páginas
-            if (link.path) {
-              return (
-                <Link
-                  key={link.label}
-                  to={link.path}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-medium hover:text-primary dark:hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              );
-            }
-
-            // Enlaces a secciones (anchors)
-            return (
+          {navLinks.map((link) =>
+            link.type === "route" ? (
+              <Link
+                key={link.label}
+                to={link.path}
+                onClick={() => setOpen(false)}
+                className="text-sm font-medium hover:text-primary dark:hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ) : (
               <button
                 key={link.label}
-                onClick={() => goToSection(link.hash)}
+                onClick={() => handleSectionClick(link.id)}
                 className="text-sm font-medium hover:text-primary dark:hover:text-primary"
               >
                 {link.label}
               </button>
-            );
-          })}
+            )
+          )}
         </nav>
 
-        {/* BOTÓN MOBILE */}
+        {/* Mobile button */}
         <button
           className="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen((prev) => !prev)}
         >
           <span className="material-symbols-outlined">menu</span>
         </button>
       </div>
 
-      {/* MENU MOBILE */}
+      {/* Mobile nav */}
       {open && (
         <div className="md:hidden w-full border-t border-gray-200 dark:border-gray-800 bg-background-light/95 dark:bg-background-dark/95 px-4 pb-3">
           <nav className="flex flex-col gap-3 pt-2">
-            {navLinks.map((link) => {
-              if (link.path) {
-                return (
-                  <Link
-                    key={link.label}
-                    to={link.path}
-                    onClick={() => setOpen(false)}
-                    className="text-sm font-medium py-1 hover:text-primary dark:hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                );
-              }
-
-              return (
+            {navLinks.map((link) =>
+              link.type === "route" ? (
+                <Link
+                  key={link.label}
+                  to={link.path}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-medium py-1 hover:text-primary dark:hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ) : (
                 <button
                   key={link.label}
-                  onClick={() => goToSection(link.hash)}
+                  onClick={() => handleSectionClick(link.id)}
                   className="text-sm text-left font-medium py-1 hover:text-primary dark:hover:text-primary"
                 >
                   {link.label}
                 </button>
-              );
-            })}
+              )
+            )}
           </nav>
         </div>
       )}

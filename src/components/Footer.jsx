@@ -57,19 +57,19 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-base">
                   location_on
                 </span>
-                Av. Siempre Viva 742
+                Direccion
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-base">
                   call
                 </span>
-                +54 9 11 1234-5678
+                Numero de Teléfono
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-base">
                   mail
                 </span>
-                contacto@montemoriah.com
+                Correo Electronico
               </li>
             </ul>
           </div>
