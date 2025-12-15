@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function HeroSection() {
-  const whatsappLink = "https://wa.me/"; // ajusta el número si quieres
+  const whatsappLink = "https://wa.me/50247222020"; // ajusta el número si quieres
 
   return (
     <section
@@ -14,9 +14,6 @@ export default function HeroSection() {
       }}
     >
       <div className="container mx-auto px-4 text-center text-white">
-        <h2 className="mt-4 text-lg md:text-xl mb-4 font-normal">
-          Bienvenidos, pagina en contruccion.
-        </h2>
         <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tighter">
           Aserradero Monte Moriah
         </h1>

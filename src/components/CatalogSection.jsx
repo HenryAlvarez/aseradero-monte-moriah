@@ -2,6 +2,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Imágenes reales (desde src/assets)
+import celosillaAbiertaImg from "../assets/Productos/selocilla abierta.jpg";
+import celosillaMarcoImg from "../assets/Productos/selocilla con marco.jpg";
+import pilaresTorneadosImg from "../assets/Productos/pilares torneados.jpg";
+import tablasImg from "../assets/Productos/tablas.jpg";
+
 export default function CatalogSection() {
   return (
     <section
@@ -18,16 +24,13 @@ export default function CatalogSection() {
           <div className="flex flex-col gap-3 group">
             <div
               className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300"
-              data-alt="Stack of large wooden beams for construction"
-              style={{
-                backgroundImage:
-                  'url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2wgWHsSmnG_NEWJQWyYELzOHUv-JfP9D_cpstZhP7zi8zSmppJYIjPur7yEgntP7C-ia88B3eE6ha3fEGqpk9HprD8_xrtzJiguPnPw7UeS6vwT-DfmIPJ94dlBwKNEH362yPYdV2vkXEAZ1VxQBsv3tcZBq1eTo_njRsUm5hWMx4RiEBJegF-t_UE0NjO5tLXGclzMKyl37ZOmsWT_RwaZXCoJWodGegqV1Cy594yXrRBtKnAMpoVxeuByU1zqqGAsMB8BU0XZU")',
-              }}
+              data-alt="Celosilla abierta para pérgola"
+              style={{ backgroundImage: `url("${celosillaAbiertaImg}")` }}
             />
             <div>
-              <p className="text-base font-medium">Vigas de madera</p>
+              <p className="text-base font-medium">Celosilla (abierta)</p>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Alta resistencia para estructuras.
+                Abierta 5 cm, 1.20 cm x 2.40 cm.
               </p>
             </div>
           </div>
@@ -36,16 +39,13 @@ export default function CatalogSection() {
           <div className="flex flex-col gap-3 group">
             <div
               className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300"
-              data-alt="Neatly arranged planks of pine wood"
-              style={{
-                backgroundImage:
-                  'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCrKzxfQKK5IW6mVkIdvFe1l7ejbtiWCzzMER5CU24itgHBuAMBHXaUtqs-APqAoDU6VjtXJbA13-PuQVZ_bTqajKy8vqZOO63Qs1ASXffZGX_7CIqEulVjTh2eIzOz-cbP0V-eI-80MOLMh64k_6J62JBbIVqrULixvssaVSMpdKs-25mAVhr7844zwMGx0rDrd0pyUuU5B3AZsM--u9xnLQFqCMl6uZsNp3pN0u6YhZ1RTmzaqwBahpsLP0BEiUjY-O-dfEChv5c")',
-              }}
+              data-alt="Celosilla con marco para pérgola"
+              style={{ backgroundImage: `url("${celosillaMarcoImg}")` }}
             />
             <div>
-              <p className="text-base font-medium">Tablas de pino</p>
+              <p className="text-base font-medium">Marco de celosilla</p>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Ideal para construcción y carpintería.
+                4.5 cm, 1.20 cm x 2.40 cm.
               </p>
             </div>
           </div>
@@ -54,16 +54,13 @@ export default function CatalogSection() {
           <div className="flex flex-col gap-3 group">
             <div
               className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300"
-              data-alt="Treated wooden posts for outdoor use"
-              style={{
-                backgroundImage:
-                  'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCol0f_D9mrYVoo7wjJpcoNCE_ZWFiGOrIICGZet_QPftIA-s0tL15Eq0tdZK519JpaRqsWO3ZcGM6Ugt55ja7UEmTFl3HvPTuZRtZrwEIzQJPAcelWAMyipTUAnjbWuopFgLoQoWAG08BGSiSrsy_mlPeedIZoIAxQ9gWjSJC3x5jcq9CExXvOQuwQFzh-s7ISRtfKVdYpLfRQWLaeXlVJOG3pG2o3Xy1mWlqi33ihc9B5GlsORxIWPbgy6YaxsywY8k2bS17UhyM")',
-              }}
+              data-alt="Pilares torneados de ciprés para pérgola"
+              style={{ backgroundImage: `url("${pilaresTorneadosImg}")` }}
             />
             <div>
-              <p className="text-base font-medium">Postes tratados</p>
+              <p className="text-base font-medium">Pilares torneados</p>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Durabilidad para exteriores.
+                8&quot; x 8&quot; x 8&apos; ciprés (bajo pedido).
               </p>
             </div>
           </div>
@@ -72,16 +69,13 @@ export default function CatalogSection() {
           <div className="flex flex-col gap-3 group">
             <div
               className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden transform group-hover:scale-105 transition-transform duration-300"
-              data-alt="Interlocking machimbre wood panels"
-              style={{
-                backgroundImage:
-                  'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3z-eSd1HMs8RlfH00kA7P6YbScrHYKKtutYrnzVUdfKfvz_uXogAJqaJO59zE8_FA5tCClrHmaR6mvXUStGfi1c8nn-soN55EOd6BQhsKZ08siHYSyichrXbBVdQD2A-Qy_vimjfmTCVQOZm1TFw7Vb_DuS8Ah3153gt7AoW5Mtv0NSGXKATXOwqm1wRJbd6VWD0VxBenMVmqgXg1rYN0wBFJWaPEvOFyamKyy6WJzumkbCZuqn-dnbF_k5MKRIjgu_GcQ5l2PUU")',
-              }}
+              data-alt="Tablas de madera aserrada"
+              style={{ backgroundImage: `url("${tablasImg}")` }}
             />
             <div>
-              <p className="text-base font-medium">Machimbre</p>
+              <p className="text-base font-medium">Tablas</p>
               <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                Perfecto para revestimientos y techos.
+                De todas las medidas (madera aserrada).
               </p>
             </div>
           </div>

@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,21 +15,34 @@ export default function Navbar() {
     { label: "Contacto", type: "section", id: "contact" },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   const scrollToId = (id) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleRouteClick = (path) => {
+    setOpen(false);
+
+    // Si ya estás en Home y dan click a "Inicio" -> subir arriba
+    if (path === "/" && location.pathname === "/") {
+      scrollToTop();
+      return;
     }
+
+    // Si no, navegar normal
+    navigate(path);
   };
 
   const handleSectionClick = (id) => {
     setOpen(false);
 
     if (location.pathname === "/") {
-      // Ya estamos en Home → solo hacer scroll
       scrollToId(id);
     } else {
-      // Estamos en otra página → ir al Home y luego hacer scroll
       navigate("/", { state: { scrollTo: id } });
     }
   };
@@ -53,14 +66,13 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) =>
             link.type === "route" ? (
-              <Link
+              <button
                 key={link.label}
-                to={link.path}
-                onClick={() => setOpen(false)}
+                onClick={() => handleRouteClick(link.path)}
                 className="text-sm font-medium hover:text-primary dark:hover:text-primary"
               >
                 {link.label}
-              </Link>
+              </button>
             ) : (
               <button
                 key={link.label}
@@ -88,14 +100,13 @@ export default function Navbar() {
           <nav className="flex flex-col gap-3 pt-2">
             {navLinks.map((link) =>
               link.type === "route" ? (
-                <Link
+                <button
                   key={link.label}
-                  to={link.path}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-medium py-1 hover:text-primary dark:hover:text-primary"
+                  onClick={() => handleRouteClick(link.path)}
+                  className="text-sm text-left font-medium py-1 hover:text-primary dark:hover:text-primary"
                 >
                   {link.label}
-                </Link>
+                </button>
               ) : (
                 <button
                   key={link.label}

@@ -1,7 +1,48 @@
 // src/components/ContactSection.jsx
-import React from "react";
+import React, { useMemo, useState } from "react";
 
 export default function ContactSection() {
+  const WHATSAPP_NUMBER = "50247222020"; // sin "+" y sin espacios
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const whatsappLink = useMemo(() => {
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+
+    const lines = [
+      "Hola, quiero hacer una consulta.",
+      name ? `Nombre: ${name}` : null,
+      email ? `Email: ${email}` : null,
+      message ? `Mensaje: ${message}` : null,
+    ].filter(Boolean);
+
+    const text = encodeURIComponent(lines.join("\n"));
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  }, [form]);
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    // Validación mínima
+    if (!form.name.trim() || !form.message.trim()) {
+      alert("Por favor escribe tu nombre y tu mensaje.");
+      return;
+    }
+
+    window.open(whatsappLink, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section className="py-16 sm:py-24" id="contact">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -18,7 +59,8 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-bold">Dirección</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Dirección
+                  Caserio santa isabel, 1 calle 1-117 zona 4 santa lucias milpas
+                  altas
                 </p>
               </div>
             </div>
@@ -29,9 +71,7 @@ export default function ContactSection() {
               </span>
               <div>
                 <h4 className="font-bold">Teléfono</h4>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Numero de Teléfono
-                </p>
+                <p className="text-gray-600 dark:text-gray-400">+502 47222020</p>
               </div>
             </div>
 
@@ -42,7 +82,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-bold">Email</h4>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Correo Electronico
+                  vickyleivacastillo04@gmail.com
                 </p>
               </div>
             </div>
@@ -54,13 +94,13 @@ export default function ContactSection() {
                 height="100%"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990738.4649003286!2d-91.35613804394016!3d15.656231680857742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f6!3m3!1m2!1s0x858901f9ed7b1df1%3A0x8e5c2bd33ad0396b!2sGuatemala!5e0!3m2!1ses!2sgt!4v1706900800000!5m2!1ses!2sgt"
+                src="https://www.google.com/maps?q=Caser%C3%ADo%20Santa%20Isabel%2C%201%20calle%201-117%2C%20zona%204%2C%20Santa%20Luc%C3%ADa%20Milpas%20Altas%2C%20Guatemala&output=embed"
                 style={{ border: 0, width: "100%" }}
               ></iframe>
             </div>
           </div>
 
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={onSubmit}>
             <div>
               <label className="block text-sm font-medium mb-1" htmlFor="name">
                 Nombre
@@ -69,6 +109,8 @@ export default function ContactSection() {
                 id="name"
                 name="name"
                 type="text"
+                value={form.name}
+                onChange={onChange}
                 className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark/50 focus:ring-primary focus:border-primary"
               />
             </div>
@@ -81,21 +123,22 @@ export default function ContactSection() {
                 id="email"
                 name="email"
                 type="email"
+                value={form.email}
+                onChange={onChange}
                 className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark/50 focus:ring-primary focus:border-primary"
               />
             </div>
 
             <div>
-              <label
-                className="block text-sm font-medium mb-1"
-                htmlFor="message"
-              >
+              <label className="block text-sm font-medium mb-1" htmlFor="message">
                 Mensaje
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows="5"
+                value={form.message}
+                onChange={onChange}
                 className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark/50 focus:ring-primary focus:border-primary"
               ></textarea>
             </div>
@@ -104,8 +147,18 @@ export default function ContactSection() {
               type="submit"
               className="w-full md:w-auto flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-[#102216] text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors"
             >
-              Enviar Consulta
+              Enviar por WhatsApp
             </button>
+
+            {/* Opcional: link directo (por si el usuario quiere abrir WhatsApp sin enviar) */}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-primary font-medium hover:underline"
+            >
+              Abrir WhatsApp con este mensaje
+            </a>
           </form>
         </div>
       </div>

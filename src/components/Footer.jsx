@@ -1,7 +1,36 @@
 // src/components/Footer.jsx
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  const scrollToId = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const goHomeTop = () => {
+    if (location.pathname === "/") {
+      scrollToTop();
+    } else {
+      navigate("/");
+    }
+  };
+
+  const goHomeSection = (id) => {
+    if (location.pathname === "/") {
+      scrollToId(id);
+    } else {
+      navigate("/", { state: { scrollTo: id } });
+    }
+  };
+
   return (
     <footer className="bg-[#102216] text-white">
       <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -28,24 +57,49 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="hover:text-primary" href="#">
+                <button
+                  type="button"
+                  onClick={goHomeTop}
+                  className="hover:text-primary text-left"
+                >
                   Inicio
-                </a>
+                </button>
               </li>
               <li>
-                <a className="hover:text-primary" href="#about">
+                <button
+                  type="button"
+                  onClick={() => goHomeSection("about")}
+                  className="hover:text-primary text-left"
+                >
                   Sobre Nosotros
-                </a>
+                </button>
               </li>
               <li>
-                <a className="hover:text-primary" href="#catalog">
+                <button
+                  type="button"
+                  onClick={() => goHomeSection("catalog")}
+                  className="hover:text-primary text-left"
+                >
                   Catálogo
-                </a>
+                </button>
               </li>
               <li>
-                <a className="hover:text-primary" href="#gallery">
+                <button
+                  type="button"
+                  onClick={() => goHomeSection("gallery")}
+                  className="hover:text-primary text-left"
+                >
                   Galería
-                </a>
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => goHomeSection("contact")}
+                  className="hover:text-primary text-left"
+                >
+                  Contacto
+                </button>
               </li>
             </ul>
           </div>
@@ -57,19 +111,16 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-base">
                   location_on
                 </span>
-                Direccion
+                Caserio santa isabel, 1 calle 1-117 zona 4 santa lucias milpas
+                altas
               </li>
               <li className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-base">
-                  call
-                </span>
-                Numero de Teléfono
+                <span className="material-symbols-outlined text-base">call</span>
+                +502 47222020
               </li>
               <li className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-base">
-                  mail
-                </span>
-                Correo Electronico
+                <span className="material-symbols-outlined text-base">mail</span>
+                vickyleivacastillo04@gmail.com
               </li>
             </ul>
           </div>
